@@ -11,4 +11,4 @@ Wchat app kit is a small program development package of wchat. You can use this 
 ### component
 * reference [wchat-app-demo](https://github.com/wchatim/wchat-app-demo)
 
-Continual updates of content. 
+Continual updates of content

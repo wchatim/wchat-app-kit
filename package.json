@@ -1,0 +1,33 @@
+{
+  "name": "wchat-app-kit",
+  "version": "1.0.0",
+  "description": "wchat app kit",
+  "main": "index.js",
+  "scripts": {
+    "build-android": "node node_modules/react-native/local-cli/cli.js bundle --platform android --dev false --entry-file index.js --config .kitserializer.js --bundle-output ./build/android/wchat.platform.bundle --assets-dest assets",
+    "build-ios": "node node_modules/react-native/local-cli/cli.js bundle --platform ios --dev false --entry-file index.js --config .kitserializer.js --bundle-output ./build/ios/wchat.platform.bundle --assets-dest assets"
+  },
+  "keywords": [
+    "react-native",
+    "wchat",
+    "app",
+    "kit"
+  ],
+  "author": "wchat",
+  "license": "MIT",
+  "dependencies": {
+    "@react-native-community/viewpager": "^2.0.1",
+    "react": "16.9.0",
+    "react-native": "0.61.2",
+    "react-native-elements": "^1.2.0",
+    "react-native-gesture-handler": "^1.3.0",
+    "react-native-qrcode-svg": "^5.3.1",
+    "react-native-svg": "^9.13.3",
+    "react-native-vector-icons": "^6.6.0",
+    "react-native-view-shot": "^3.0.2",
+    "react-native-webview": "^7.4.2",
+    "react-navigation": "^3.11.1",
+    "react-timer-mixin": "^0.13.4"
+  },
+  "devDependencies": {}
+}
