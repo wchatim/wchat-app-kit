@@ -8,7 +8,7 @@ Wchat app kit is a small program development package of wchat. You can use this 
 * Install VSCode [downlod](https://code.visualstudio.com/)
 * Install VSCode Plugin (React Native Tools,Reactjs code snippets,Auto Close Tag,Auto Rename Tag,Path Intellisense,ESLint,Dash,Babel ES6/ES7,Typings auto installer)
 
-### component
-* reference [wchat-app-demo](https://github.com/wchatim/wchat-app-demo)
+### Component
+* Reference [wchat-app-demo](https://github.com/wchatim/wchat-app-demo)
 
 Continual updates of content. 
