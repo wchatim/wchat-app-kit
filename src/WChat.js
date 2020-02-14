@@ -525,7 +525,21 @@ var WChat = {
      * @param {*} message 
      */
     log:function(tag,message){
-        NativeModules.WChatNative.log(tag,message);
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.log(tag,message).then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.log(tag,message,(data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
     }
 }
 
