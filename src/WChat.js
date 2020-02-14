@@ -84,7 +84,25 @@ var WChat = {
      * os
      */
     getOs:function(){
-        return isIos?"ios":"android";
+        return new Promise(function(resolve,reject) {
+            try{
+                if(isIos){
+                    NativeModules.WChatNative.getSystemInfo().then(data=>{
+                        resolve(JSON.parse(data));
+                    }).catch(({code,message})=>{
+                        reject({code,msg:message});
+                    });
+                }else{
+                    NativeModules.WChatNative.getSystemInfo((data)=>{
+                        resolve(JSON.parse(data));
+                    },(code,msg)=>{
+                        reject({code,msg});
+                    });
+                }
+            }catch(e){
+                reject({code:"500",msg:"exception"});
+            }
+        }); 
     },
 
     /**
@@ -500,6 +518,14 @@ var WChat = {
                 });
             }
         }); 
+    },
+    /**
+     * 日志
+     * @param {*} tag 
+     * @param {*} message 
+     */
+    log:function(tag,message){
+        NativeModules.WChatNative.log(tag,message);
     }
 }
 

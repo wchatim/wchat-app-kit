@@ -10,7 +10,9 @@ import NavUtils from './src/NavUtils';
 import ScrollableTabView from './src/ScrollableTabView';
 import ViewShot from "react-native-view-shot";
 import QRCode from 'react-native-qrcode-svg';
-import Svg, {Circle,Ellipse,G,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Symbol,Defs,LinearGradient,RadialGradient,Stop,ClipPath,Pattern,Mask} from 'react-native-svg';
+import Svg, {Circle,Ellipse,G,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Symbol,Defs,RadialGradient,Stop,ClipPath,Pattern,Mask} from 'react-native-svg';
+import LinearGradient from 'react-native-linear-gradient';
+import LocalizedStrings from 'react-native-localization';
 const {ScrollableTabBar} = ScrollableTabView;
 const {View,Image}  = RNKit;
 
@@ -23,7 +25,9 @@ module.exports = {
     React,
     WChat,
     Storage,
+    LinearGradient,
+    LocalizedStrings,
     ScrollableTabView,
     ScrollableTabBar,
-    Svg:{Svg,Circle,Ellipse,G,Text:Svg.Text,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Image:Svg.Image,Symbol,Defs,LinearGradient,RadialGradient,Stop,ClipPath,Pattern,Mask}
+    Svg:{Svg,Circle,Ellipse,G,Text:Svg.Text,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Image:Svg.Image,Symbol,Defs,RadialGradient,Stop,ClipPath,Pattern,Mask}
 }

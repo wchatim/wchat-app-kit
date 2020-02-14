@@ -16,16 +16,20 @@ const app = express();
 app.get('/check', (req, res) => {
     res.send(buildversion);
 });
+app.post('/log', (req, res) => {
+    var tag = req.body.tag;
+    var message = req.body.message;
+    console.log(dateFormat("YYYY-mm-dd HH:MM:SS",new Date())+" "+tag+" ----> "+message);
+    res.send("success");
+});
 app.use(express.static(rootDir+"/.build"));
 app.listen(8890,()=>console.log('listening on port 8890!'));
-
 chokidar.watch(path.resolve(rootDir,'src'),{ignoreInitial:true}).on('all',(event,filename)=>{
     if ((event === 'add' || event === 'change')) {
         console.log(chalk.green('->'), `${event}: ${filename}`);
         filesToBuild.set(filename, true);
     }
 });
-
 filesToBuild.set("/", true);
 setInterval(() => {
     const files = Array.from(filesToBuild.keys());
@@ -40,3 +44,21 @@ setInterval(() => {
         } catch (e) {}
     }
 },100);
+function dateFormat(fmt, date) {
+    let ret;
+    const opt = {
+        "Y+": date.getFullYear().toString(),        // 年
+        "m+": (date.getMonth() + 1).toString(),     // 月
+        "d+": date.getDate().toString(),            // 日
+        "H+": date.getHours().toString(),           // 时
+        "M+": date.getMinutes().toString(),         // 分
+        "S+": date.getSeconds().toString()          // 秒
+    };
+    for (let k in opt) {
+        ret = new RegExp("(" + k + ")").exec(fmt);
+        if (ret) {
+            fmt = fmt.replace(ret[1], (ret[1].length == 1) ? (opt[k]) : (opt[k].padStart(ret[1].length, "0")))
+        };
+    };
+    return fmt;
+}
