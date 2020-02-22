@@ -540,7 +540,19 @@ var WChat = {
                 });
             }
         }); 
-    }
+    },
+    /**
+     * 显示
+     */
+    showToolbar:function(){
+        NativeModules.WChatNative.showToolBar();
+    },
+    /**
+     * 隐藏
+     */
+    hidenToolBar:function(){
+        NativeModules.WChatNative.hidenToolBar();
+    },
 }
 
 module.exports = WChat;
