@@ -544,14 +544,14 @@ var WChat = {
     /**
      * 显示
      */
-    showToolbar:function(){
-        NativeModules.WChatNative.showToolBar();
+    openTopBar:function(){
+        NativeModules.WChatNative.openTopBar();
     },
     /**
      * 隐藏
      */
-    hidenToolBar:function(){
-        NativeModules.WChatNative.hidenToolBar();
+    closeTopBar:function(){
+        NativeModules.WChatNative.closeTopBar();
     }
 }
 
