@@ -552,7 +552,7 @@ var WChat = {
      */
     hidenToolBar:function(){
         NativeModules.WChatNative.hidenToolBar();
-    },
+    }
 }
 
 module.exports = WChat;
