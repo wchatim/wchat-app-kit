@@ -1,6 +1,7 @@
 import React from 'react';
 import RNKit from 'react-native';
 import 'react-native-gesture-handler';
+import 'react-native-agora';
 import Navigation from 'react-navigation';
 import {Badge,Button,ButtonGroup,Card,Input,ListItem,PricingCard,Tooltip,SocialIcon,Text,Divider,CheckBox,SearchBar,Icon,colors,getIconType,registerCustomIconType,normalize,Tile,Slider,Avatar,Rating,AirbnbRating,Header,Overlay,ThemeProvider,ThemeConsumer,ThemeContext,withBadge,withTheme} from 'react-native-elements';
 import WebView from 'react-native-webview';
