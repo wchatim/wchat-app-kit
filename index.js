@@ -13,8 +13,17 @@ import ViewShot from "react-native-view-shot";
 import QRCode from 'react-native-qrcode-svg';
 import Svg, {Circle,Ellipse,G,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Symbol,Defs,RadialGradient,Stop,ClipPath,Pattern,Mask} from 'react-native-svg';
 import LocalizedStrings from 'react-native-localization';
+import {setJSExceptionHandler, setNativeExceptionHandler} from 'react-native-exception-handler';
 const {ScrollableTabBar} = ScrollableTabView;
 const {View,Image}  = RNKit;
+
+setJSExceptionHandler((error, isFatal)=>{
+    WChat.showAlert(error.name,error.message,"close",null);
+}, true);
+
+setNativeExceptionHandler((errorString)=>{
+    WChat.showAlert("Error",errorString,"close",null);
+},false, true);
 
 module.exports = { 
     Navigation,
