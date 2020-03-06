@@ -552,7 +552,73 @@ var WChat = {
      */
     closeTopBar:function(){
         NativeModules.WChatNative.closeTopBar();
-    }
+    },
+    /**
+     * 加入聊天室
+     * @param {*} tag 
+     * @param {*} message 
+     */
+    joinChatRoom:function(roomid){
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.joinChatRoom(roomid).then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.joinChatRoom(roomid,(data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
+    },
+    /**
+     * 退出聊天室
+     * @param {*} tag 
+     * @param {*} message 
+     */
+    exitChatRoom:function(roomid){
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.exitChatRoom(roomid).then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.exitChatRoom(roomid,(data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
+    },
+    /**
+     * 发送聊天消息
+     * @param {*} tag 
+     * @param {*} message 
+     */
+    sendChatRoomMsg:function(roomid,text,ext){
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.sendChatRoomMsg(roomid,text,ext).then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.sendChatRoomMsg(roomid,text,ext,(data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
+    },
 }
 
 module.exports = WChat;
