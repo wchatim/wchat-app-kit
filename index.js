@@ -15,6 +15,8 @@ import QRCode from 'react-native-qrcode-svg';
 import Svg, {Circle,Ellipse,G,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Symbol,Defs,RadialGradient,Stop,ClipPath,Pattern,Mask} from 'react-native-svg';
 import LocalizedStrings from 'react-native-localization';
 import {setJSExceptionHandler, setNativeExceptionHandler} from 'react-native-exception-handler';
+import IJKPlayerView from "react-native-easy-ijkplayer";
+import RNIdle from 'react-native-idle';
 const {ScrollableTabBar} = ScrollableTabView;
 const {View,Image}  = RNKit;
 
@@ -38,5 +40,7 @@ module.exports = {
     LocalizedStrings,
     ScrollableTabView,
     ScrollableTabBar,
+    IJKPlayerView,
+    RNIdle,
     Svg:{Svg,Circle,Ellipse,G,Text:Svg.Text,TSpan,TextPath,Path,Polygon,Polyline,Line,Rect,Use,Image:Svg.Image,Symbol,Defs,RadialGradient,Stop,ClipPath,Pattern,Mask}
 }
