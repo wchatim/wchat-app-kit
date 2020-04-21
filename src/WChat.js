@@ -619,6 +619,32 @@ var WChat = {
             }
         }); 
     },
+    /**
+     * 授权身份
+     */
+    requestIdentity:function() {
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.requestIdentity().then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.requestIdentity((data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
+    },
+    /**
+     * 退出小程序
+     */
+    exit:function(){
+        NativeModules.WChatNative.exit();
+    }
 }
 
 module.exports = WChat;
