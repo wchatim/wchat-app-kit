@@ -648,16 +648,16 @@ var WChat = {
     /**
      * 跳转
      */
-    target:function(url) {
+    targetPage:function(url) {
         return new Promise(function(resolve,reject) {
             if(isIos){
-                NativeModules.WChatNative.target(url).then(data=>{
+                NativeModules.WChatNative.targetPage(url).then(data=>{
                     resolve(data);
                 }).catch(({code,message})=>{
                     reject({code,msg:message});
                 });
             }else{
-                NativeModules.WChatNative.target(url,(data)=>{
+                NativeModules.WChatNative.targetPage(url,(data)=>{
                     resolve(data);
                 },(code,msg)=>{
                     reject({code,msg});
