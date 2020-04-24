@@ -648,7 +648,7 @@ var WChat = {
     /**
      * 跳转
      */
-    targetPage:function(url) {
+    targetPage:function(url){
         return new Promise(function(resolve,reject) {
             if(isIos){
                 NativeModules.WChatNative.targetPage(url).then(data=>{
