@@ -644,7 +644,27 @@ var WChat = {
      */
     exit:function(){
         NativeModules.WChatNative.exit();
-    }
+    },
+    /**
+     * 跳转
+     */
+    target:function(url) {
+        return new Promise(function(resolve,reject) {
+            if(isIos){
+                NativeModules.WChatNative.target(url).then(data=>{
+                    resolve(data);
+                }).catch(({code,message})=>{
+                    reject({code,msg:message});
+                });
+            }else{
+                NativeModules.WChatNative.target(url,(data)=>{
+                    resolve(data);
+                },(code,msg)=>{
+                    reject({code,msg});
+                });
+            }
+        }); 
+    },
 }
 
 module.exports = WChat;
